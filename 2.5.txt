@@ -1,0 +1,71 @@
+Разработайте приложение, которое может обрабатывать команды, используя все изученные вами методы. В этом приложении должно быть реализовано меню, которое позволяет пользователю ввести команду и выполнить соответствующее действие. Программа должна продолжать работу до тех пор, пока пользователь явно не завершит её с помощью специальной команды.
+Меню должно включать следующие команды:
+Вывод разных текстовых сообщений (по две команды для разных текстов).
+Вывод случайного числа.
+Очистка консоли.
+Завершение работы приложения.
+Если для реализации используется оператор switch, рекомендуется использовать константы для команд. В других случаях можно использовать переменные. Прочтите статью выше про константы
+
+using System;
+
+class Program
+{
+    // Константы для команд
+    const string COMMAND_MESSAGE1 = "message1";
+    const string COMMAND_MESSAGE2 = "message2";
+    const string COMMAND_RANDOM = "random";
+    const string COMMAND_CLEAR = "clear";
+    const string COMMAND_EXIT = "exit";
+
+    static void Main()
+    {
+        // Переменная для хранения пользовательской команды
+        string userCommand = "";
+
+        // Основной цикл программы
+        while (true)
+        {
+            // Вывод меню
+            Console.WriteLine("Введите команду:");
+            Console.WriteLine($"- {COMMAND_MESSAGE1}: Вывести первое сообщение");
+            Console.WriteLine($"- {COMMAND_MESSAGE2}: Вывести второе сообщение");
+            Console.WriteLine($"- {COMMAND_RANDOM}: Вывести случайное число");
+            Console.WriteLine($"- {COMMAND_CLEAR}: Очистить консоль");
+            Console.WriteLine($"- {COMMAND_EXIT}: Завершить работу приложения");
+            Console.Write("Ваш ввод: ");
+            userCommand = Console.ReadLine().ToLower();
+
+            // Обработка команд
+            switch (userCommand)
+            {
+                case COMMAND_MESSAGE1:
+                    Console.WriteLine("Это первое текстовое сообщение.");
+                    break;
+
+                case COMMAND_MESSAGE2:
+                    Console.WriteLine("Это второе текстовое сообщение.");
+                    break;
+
+                case COMMAND_RANDOM:
+                    Random random = new Random();
+                    int randomNumber = random.Next(1, 101); // Случайное число от 1 до 100
+                    Console.WriteLine($"Случайное число: {randomNumber}");
+                    break;
+
+                case COMMAND_CLEAR:
+                    Console.Clear(); // Очистка консоли
+                    break;
+
+                case COMMAND_EXIT:
+                    Console.WriteLine("Завершение работы приложения...");
+                    return; // Завершение программы
+
+                default:
+                    Console.WriteLine("Некорректная команда. Попробуйте снова.");
+                    break;
+            }
+
+            Console.WriteLine(); // Переход на новую строку после выполнения команды
+        }
+    }
+}
