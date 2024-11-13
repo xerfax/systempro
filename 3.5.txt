@@ -1,0 +1,74 @@
+В данном массиве чисел необходимо найти самый длинный подмассив, состоящий из одинаковых чисел. У нас есть 30 чисел, и требуется вывести в консоль сам массив, а также число, которое встречается подряд наибольшее количество раз, и количество таких повторений. Нет необходимости использовать дополнительный массив для решения задачи.
+Пример:
+{2 2 2 3 4 4 4 4 4 2 2 2} Число 4 повторяется 5 раз подряд
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Инициализация массива из 30 чисел
+        int[] numbers = new int[30];
+        Random random = new Random();
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            numbers[i] = random.Next(1, 6); // Генерация чисел от 1 до 5 для демонстрации
+        }
+
+        // Вывод исходного массива
+        Console.WriteLine("Исходный массив:");
+        PrintArray(numbers);
+
+        // Переменные для отслеживания наибольшей последовательности
+        int maxNumber = numbers[0];
+        int maxCount = 1;
+
+        // Переменные для текущей последовательности
+        int currentNumber = numbers[0];
+        int currentCount = 1;
+
+        // Поиск самой длинной последовательности одинаковых чисел
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            if (numbers[i] == currentNumber)
+            {
+                currentCount++;
+            }
+            else
+            {
+                // Проверка, является ли текущая последовательность самой длинной
+                if (currentCount > maxCount)
+                {
+                    maxCount = currentCount;
+                    maxNumber = currentNumber;
+                }
+
+                // Обновление текущего числа и сброс счетчика
+                currentNumber = numbers[i];
+                currentCount = 1;
+            }
+        }
+
+        // Проверка последней последовательности
+        if (currentCount > maxCount)
+        {
+            maxCount = currentCount;
+            maxNumber = currentNumber;
+        }
+
+        // Вывод результатов
+        Console.WriteLine($"\nЧисло {maxNumber} повторяется {maxCount} раз подряд.");
+    }
+
+    // Метод для вывода массива
+    static void PrintArray(int[] array)
+    {
+        foreach (var item in array)
+        {
+            Console.Write(item + " ");
+        }
+        Console.WriteLine();
+    }
+}
