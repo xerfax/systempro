@@ -1,0 +1,81 @@
+Определите максимальный элемент в матрице A размером 10 на 10 и замените его на нули в тех позициях, где он находится. Затем выведите значение этого максимального элемента, а также исходную и изменённую матрицы.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Определяем размеры матрицы
+        const int rows = 10; // Количество строк
+        const int cols = 10; // Количество столбцов
+
+        // Инициализируем матрицу
+        int[,] matrix = new int[rows, cols];
+
+        // Заполнение матрицы случайными числами
+        Random random = new Random();
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                matrix[i, j] = random.Next(1, 101); // Случайные числа от 1 до 100
+            }
+        }
+
+        // Вывод исходной матрицы
+        Console.WriteLine("Исходная матрица:");
+        PrintMatrix(matrix);
+
+        // Определение максимального элемента и его позиции
+        int maxElement = matrix[0, 0];
+        int maxRow = 0;
+        int maxCol = 0;
+
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                if (matrix[i, j] > maxElement)
+                {
+                    maxElement = matrix[i, j];
+                    maxRow = i;
+                    maxCol = j;
+                }
+            }
+        }
+
+        // Замена максимального элемента на нули
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                if (matrix[i, j] == maxElement)
+                {
+                    matrix[i, j] = 0;
+                }
+            }
+        }
+
+        // Вывод результата
+        Console.WriteLine($"Максимальный элемент: {maxElement}");
+        Console.WriteLine("Изменённая матрица:");
+        PrintMatrix(matrix);
+    }
+
+    // Метод для вывода матрицы
+    static void PrintMatrix(int[,] matrix)
+    {
+        int rows = matrix.GetLength(0);
+        int cols = matrix.GetLength(1);
+
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                Console.Write(matrix[i, j] + "\t"); // Вывод элементов с табуляцией
+            }
+            Console.WriteLine(); // Переход на новую строку
+        }
+    }
+}
