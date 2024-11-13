@@ -24,3 +24,4 @@ class Program
         Console.WriteLine($"\nВаше имя {userName}, вам {userAge} лет, вы по знаку зодиака {zodiacSign} и работаете {jobPlace}.");
     }
 }
+
