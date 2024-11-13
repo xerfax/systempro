@@ -1,0 +1,58 @@
+Дан двумерный массив.
+Необходимо вычислить сумму элементов второй строки и произведение элементов первого столбца. Выведите оригинальную матрицу, а также результаты расчетов.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Определяем размеры массива
+        int rows = 4; // Количество строк
+        int cols = 3; // Количество столбцов
+
+        // Инициализируем двумерный массив
+        int[,] matrix = new int[rows, cols];
+
+        // Заполнение массива случайными числами
+        Random random = new Random();
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                matrix[i, j] = random.Next(1, 10); // Случайные числа от 1 до 9
+            }
+        }
+
+        // Вывод оригинальной матрицы
+        Console.WriteLine("Оригинальная матрица:");
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                Console.Write(matrix[i, j] + "\t"); // Вывод элементов с табуляцией
+            }
+            Console.WriteLine(); // Переход на новую строку
+        }
+
+        // Вычисление суммы элементов второй строки
+        int rowToSum = 1; // Вторая строка (индекс 1)
+        int sumOfSecondRow = 0;
+        for (int j = 0; j < cols; j++)
+        {
+            sumOfSecondRow += matrix[rowToSum, j];
+        }
+
+        // Вычисление произведения элементов первого столбца
+        int colToMultiply = 0; // Первый столбец (индекс 0)
+        int productOfFirstColumn = 1; // Начинаем с 1, чтобы не умножать на 0
+        for (int i = 0; i < rows; i++)
+        {
+            productOfFirstColumn *= matrix[i, colToMultiply];
+        }
+
+        // Вывод результатов
+        Console.WriteLine($"Сумма элементов второй строки: {sumOfSecondRow}");
+        Console.WriteLine($"Произведение элементов первого столбца: {productOfFirstColumn}");
+    }
+}
