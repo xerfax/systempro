@@ -1,0 +1,63 @@
+Дан одномерный массив из 30 целых чисел. Вам нужно найти и вывести все локальные максимумы. Элемент массива считается локальным максимумом, если он больше своих соседей. Крайние элементы считаются локальными максимумами, если они больше единственного соседнего элемента. Программа должна корректно обрабатывать массив любой длины. Массив локальных максимумов собирать не требуется.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Инициализация массива с 30 случайными целыми числами
+        int[] array = new int[30];
+        Random random = new Random();
+        
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i] = random.Next(1, 101); // Случайные числа от 1 до 100
+        }
+
+        // Вывод исходного массива
+        Console.WriteLine("Исходный массив:");
+        PrintArray(array);
+
+        // Поиск и вывод локальных максимумов
+        Console.WriteLine("Локальные максимумы:");
+        FindLocalMaxima(array);
+    }
+
+    // Метод для вывода массива
+    static void PrintArray(int[] array)
+    {
+        foreach (var item in array)
+        {
+            Console.Write(item + " "); // Вывод элементов массива
+        }
+        Console.WriteLine(); // Переход на новую строку
+    }
+
+    // Метод для нахождения и вывода локальных максимумов
+    static void FindLocalMaxima(int[] array)
+    {
+        int length = array.Length;
+
+        // Проверяем крайний левый элемент
+        if (length > 1 && array[0] > array[1])
+        {
+            Console.WriteLine($"Локальный максимум: {array[0]} на позиции 0");
+        }
+
+        // Проверяем элементы между первым и последним
+        for (int i = 1; i < length - 1; i++)
+        {
+            if (array[i] > array[i - 1] && array[i] > array[i + 1])
+            {
+                Console.WriteLine($"Локальный максимум: {array[i]} на позиции {i}");
+            }
+        }
+
+        // Проверяем крайний правый элемент
+        if (length > 1 && array[length - 1] > array[length - 2])
+        {
+            Console.WriteLine($"Локальный максимум: {array[length - 1]} на позиции {length - 1}");
+        }
+    }
+}
