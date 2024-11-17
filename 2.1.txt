@@ -6,15 +6,10 @@ class Program
 {
     static void Main()
     {
-        // Ввод сообщения от пользователя
         Console.Write("Введите сообщение для повторения: ");
         string userMessage = Console.ReadLine();
-
-        // Ввод количества повторений
         Console.Write("Сколько раз повторить сообщение? ");
         int repeatCount = int.Parse(Console.ReadLine());
-
-        // Цикл для вывода сообщения указанное количество раз
         for (int i = 0; i < repeatCount; i++)
         {
             Console.WriteLine(userMessage);
