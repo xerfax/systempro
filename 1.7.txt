@@ -14,22 +14,13 @@ class Program
 {
     static void Main()
     {
-        // Установленные значения
-        int timePerPatient = 10;       // Время приёма одного пациента в минутах
-        int minutesInHour = 60;        // Количество минут в одном часе
-
-        // Ввод количества пациентов
+        int timePerPatient = 10;      
+        int minutesInHour = 60;        
         Console.Write("Введите количество пациентов: ");
         int numberOfPatients = int.Parse(Console.ReadLine());
-
-        // Расчёт общего времени ожидания в минутах
         int totalWaitingTime = numberOfPatients * timePerPatient;
-
-        // Перевод общего времени в часы и минуты
-        int hours = totalWaitingTime / minutesInHour;     // Полное количество часов ожидания
-        int minutes = totalWaitingTime % minutesInHour;   // Оставшиеся минуты ожидания
-
-        // Вывод результата
+        int hours = totalWaitingTime / minutesInHour;    
+        int minutes = totalWaitingTime % minutesInHour;  
         Console.WriteLine($"Вам предстоит ждать {hours} часа(ов) и {minutes} минут.");
     }
 }
