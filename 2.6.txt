@@ -1,34 +1,29 @@
-//Напишите приложение для конвертации валют, поддерживающее три различных валюты.
-Пользователь имеет баланс в каждой из этих валют и может переводить часть своего баланса из одной валюты в другую. При этом необходимо учесть, что курс конвертации должен быть установлен в программе и быть фиксированным.
-Переменные, содержащие значения курсов конвертации, должны явно отражать направление обмена, то есть, из какой валюты в какую валюту происходит конвертация.
-В консольном меню должно быть предусмотрено 6 команд для различных конвертаций между валютами, и каждая конвертация должна использовать отдельную переменную для курса обмена. Программа должна учитывать, что баланс валюты не может стать отрицательным.
-Программа должна продолжать работу до тех пор, пока пользователь сам не решит её завершить.
+// Напишите приложение для конвертации валют, поддерживающее три различных валюты.
+// Пользователь имеет баланс в каждой из этих валют и может переводить часть своего баланса из одной валюты в другую. При этом необходимо учесть, что курс конвертации должен быть установлен в программе и быть фиксированным.
+// Переменные, содержащие значения курсов конвертации, должны явно отражать направление обмена, то есть, из какой валюты в какую валюту происходит конвертация.
+// В консольном меню должно быть предусмотрено 6 команд для различных конвертаций между валютами, и каждая конвертация должна использовать отдельную переменную для курса обмена. Программа должна учитывать, что баланс валюты не может стать отрицательным.
+// Программа должна продолжать работу до тех пор, пока пользователь сам не решит её завершить.
 
 using System;
 
 class CurrencyConverter
 {
-    // Начальные балансы в разных валютах
-    static double balanceUSD = 1000; // Баланс в долларах
-    static double balanceEUR = 800;   // Баланс в евро
-    static double balanceGBP = 600;   // Баланс в фунтах
+    static double balanceUSD = 1000; 
+    static double balanceEUR = 800;   
+    static double balanceGBP = 600;   
 
-    // Курс конвертации
-    const double USD_TO_EUR = 0.85;  // 1 USD = 0.85 EUR
-    const double USD_TO_GBP = 0.75;  // 1 USD = 0.75 GBP
-    const double EUR_TO_USD = 1.18;  // 1 EUR = 1.18 USD
-    const double EUR_TO_GBP = 0.88;  // 1 EUR = 0.88 GBP
-    const double GBP_TO_USD = 1.33;  // 1 GBP = 1.33 USD
-    const double GBP_TO_EUR = 1.14;  // 1 GBP = 1.14 EUR
+    const double USD_TO_EUR = 0.85;  
+    const double USD_TO_GBP = 0.75;  
+    const double EUR_TO_USD = 1.18; 
+    const double EUR_TO_GBP = 0.88;  
+    const double GBP_TO_USD = 1.33;  
+    const double GBP_TO_EUR = 1.14; 
 
     static void Main()
     {
         string command;
-
-        // Основной цикл программы
         while (true)
         {
-            // Вывод меню
             Console.WriteLine("Выберите команду для конвертации:");
             Console.WriteLine("1: USD в EUR");
             Console.WriteLine("2: USD в GBP");
@@ -40,14 +35,12 @@ class CurrencyConverter
             Console.Write("Ваш ввод: ");
             command = Console.ReadLine();
 
-            // Проверка на выход
             if (command.ToLower() == "exit")
             {
                 Console.WriteLine("Завершение работы приложения...");
                 break;
             }
 
-            // Обработка команд
             switch (command)
             {
                 case "1":
@@ -79,7 +72,7 @@ class CurrencyConverter
                     break;
             }
 
-            Console.WriteLine(); // Переход на новую строку после выполнения команды
+            Console.WriteLine(); 
             DisplayBalances();
         }
     }
@@ -89,15 +82,13 @@ class CurrencyConverter
         Console.Write($"Введите сумму для конвертации из {fromCurrency} в {toCurrency}: ");
         double amountToConvert;
         
-        // Проверка ввода суммы
         if (double.TryParse(Console.ReadLine(), out amountToConvert))
         {
             if (amountToConvert > 0 && amountToConvert <= fromBalance)
             {
-                // Вычисляем сумму после конвертации
                 double convertedAmount = amountToConvert * exchangeRate;
-                fromBalance -= amountToConvert; // Снижаем баланс исходной валюты
-                toBalance += convertedAmount;    // Увеличиваем баланс целевой валюты
+                fromBalance -= amountToConvert; 
+                toBalance += convertedAmount;   
                 Console.WriteLine($"Конвертация завершена: {amountToConvert} {fromCurrency} -> {convertedAmount} {toCurrency}");
             }
             else
