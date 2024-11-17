@@ -2,29 +2,17 @@
 // Помните: имена переменных начинаются с маленькой буквы. Если название состоит из нескольких слов, используйте формат «названиеПеременной». Имя переменной должно четко отражать её содержимое.
 
 
-// Числовые переменные
-int userAge = 25;                // возраст пользователя
-double itemPrice = 19.99;         // цена товара
-float heightInMeters = 1.75f;     // рост в метрах
 
-// Строковые и символьные переменные
-string userName = "Alice";        // имя пользователя
-char gradeLetter = 'A';           // оценка
-
-// Булевая переменная
-bool isMember = true;             // флаг, указывающий, является ли пользователь членом (например, клуба)
-
-// Перечисление и время
-DayOfWeek currentDay = DayOfWeek.Wednesday; // текущий день недели
-DateTime signupDate = DateTime.Now;         // дата регистрации
-
-// Другие числовые типы
-long populationCount = 7830000000;      // население (используем long для больших значений)
-short smallNumber = 150;                // короткое целое число
-decimal accountBalance = 1025.75m;      // баланс счета с высокой точностью для финансовых данных
-
-// Строка для многострочного текста
-string productDescription = "Это продукт высокого качеста с гарантией от производителя"; // описание товара
-
-// Вывод переменных в консоль
+int userAge = 25;                
+double itemPrice = 19.99;         
+float heightInMeters = 1.75f;     
+string userName = "Alice";        
+char gradeLetter = 'A';          
+bool isMember = true;            
+DayOfWeek currentDay = DayOfWeek.Wednesday; 
+DateTime signupDate = DateTime.Now;         
+long populationCount = 7830000000;     
+short smallNumber = 150;                
+decimal accountBalance = 1025.75m;      
+string productDescription = "Это продукт высокого качеста с гарантией от производителя"; 
 Console.WriteLine($"Name: {userName}, Age: {userAge}, Member: {isMember}");
