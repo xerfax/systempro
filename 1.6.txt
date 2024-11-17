@@ -9,22 +9,13 @@ class Program
 {
     static void Main()
     {
-        // Установленная цена кристалла
         int crystalPrice = 10;
-
-        // Ввод начального количества золота от пользователя
         Console.Write("Введите количество золота: ");
         int userGold = int.Parse(Console.ReadLine());
-
-        // Ввод количества кристаллов, которые хочет купить пользователь
         Console.Write("Сколько кристаллов вы хотите приобрести? ");
         int crystalsToBuy = int.Parse(Console.ReadLine());
-
-        // Расчёт затрат золота и остатка
-        int totalCost = crystalsToBuy * crystalPrice;      // Сумма, которую нужно заплатить за кристаллы
-        int remainingGold = userGold - totalCost;          // Оставшееся золото после покупки
-
-        // Вывод результатов
+        int totalCost = crystalsToBuy * crystalPrice;      
+        int remainingGold = userGold - totalCost;          
         Console.WriteLine($"Вы приобрели {crystalsToBuy} кристаллов.");
         Console.WriteLine($"Остаток золота: {remainingGold}");
     }
