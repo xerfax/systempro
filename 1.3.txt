@@ -6,21 +6,15 @@ using System;
 class Program
 {
     static void Main()
-    {
-        // Ввод информации от пользователя
+    {        
         Console.Write("Как ваше имя? ");
         string userName = Console.ReadLine();
-
         Console.Write("Сколько вам лет? ");
         int userAge = int.Parse(Console.ReadLine());
-
         Console.Write("Какой ваш знак зодиака? ");
         string zodiacSign = Console.ReadLine();
-
         Console.Write("Где вы работаете? ");
         string jobPlace = Console.ReadLine();
-
-        // Вывод краткого описания
         Console.WriteLine($"\nВаше имя {userName}, вам {userAge} лет, вы по знаку зодиака {zodiacSign} и работаете {jobPlace}.");
     }
 }
