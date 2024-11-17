@@ -7,19 +7,12 @@ class Program
 {
     static void Main()
     {
-        // Инициализация переменных
-        string firstName = "Doe";       // Перепутанные значения
+        string firstName = "Doe";      
         string lastName = "John";
-
-        // Вывод значений до обмена
         Console.WriteLine($"До обмена: firstName = {firstName}, lastName = {lastName}");
-
-        // Обмен значениями
-        string temp = firstName;       // Временная переменная для хранения значения
+        string temp = firstName;
         firstName = lastName;
         lastName = temp;
-
-        // Вывод значений после обмена
         Console.WriteLine($"После обмена: firstName = {firstName}, lastName = {lastName}");
     }
 }
