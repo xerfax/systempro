@@ -7,15 +7,10 @@ class Program
 {
     static void Main()
     {
-        // Исходные данные
-        int totalImages = 52;         // Общее количество изображений
-        int imagesPerRow = 3;         // Количество изображений в одном ряду
-
-        // Вычисление количества полных рядов и оставшихся изображений
-        int fullRows = totalImages / imagesPerRow;         // Количество полных рядов
-        int remainingImages = totalImages % imagesPerRow;  // Количество оставшихся изображений
-
-        // Вывод результатов
+        int totalImages = 52;         
+        int imagesPerRow = 3;         
+        int fullRows = totalImages / imagesPerRow;         
+        int remainingImages = totalImages % imagesPerRow;  
         Console.WriteLine($"Полных рядов: {fullRows}");
         Console.WriteLine($"Оставшиеся изображения: {remainingImages}");
     }
